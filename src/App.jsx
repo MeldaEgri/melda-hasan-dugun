@@ -20,22 +20,53 @@ export default function App() {
 
   return (
     <>
-      <IntroVideoModal isOpen={introOpen} onClose={handleIntroClose} />
-      <MusicControl introOpen={introOpen} introClosed={introClosed} />
-      <nav className="wedding-nav">
-  <span className="wedding-nav__heart">♡</span>
-  <a href="#davet">Davet</a>
-  <a href="#tarih">Tarih</a>
-  <a href="#mekan">Mekân</a>
-  <a href="#aileler">Aileler</a>
-</nav>
-      <main className={`site ${introOpen ? 'site--hidden' : 'site--visible'}`}>
+      <IntroVideoModal
+        isOpen={introOpen}
+        onClose={handleIntroClose}
+      />
+
+      <MusicControl
+        introOpen={introOpen}
+        introClosed={introClosed}
+      />
+
+      {/* ÜST MENÜ */}
+      {!introOpen && (
+        <nav className="wedding-nav">
+          <span className="wedding-nav__heart">♡</span>
+
+          <a href="#davet">Davet</a>
+          <a href="#tarih">Tarih</a>
+          <a href="#mekan">Mekân</a>
+          <a href="#aileler">Aileler</a>
+        </nav>
+      )}
+
+      <main
+        className={`site ${
+          introOpen ? 'site--hidden' : 'site--visible'
+        }`}
+      >
         <Hero />
-        <InvitationText />
-        <DateTimeSection />
+
+        <div id="davet">
+          <InvitationText />
+        </div>
+
+        <div id="tarih">
+          <DateTimeSection />
+        </div>
+
         <Countdown />
-        <EventDetails />
-        <FamilySection />
+
+        <div id="mekan">
+          <EventDetails />
+        </div>
+
+        <div id="aileler">
+          <FamilySection />
+        </div>
+
         <Footer />
       </main>
     </>

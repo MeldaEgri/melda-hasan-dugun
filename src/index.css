@@ -973,45 +973,36 @@ code {
   top: 0;
   left: 0;
   right: 0;
+
   z-index: 800;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 1.7rem;
 
-  padding: 13px 20px;
+  height: 52px;
+  padding: 0 20px;
 
-  background: rgba(250, 248, 244, 0.88);
+  background: rgba(250, 248, 244, 0.92);
+
   border-bottom: 1px solid rgba(122, 143, 110, 0.12);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  font-family: var(--font-serif);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
-}
-
-.site--visible ~ .wedding-nav {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  animation: weddingNavIn 0.6s ease both;
 }
 
 .wedding-nav a {
-  position: relative;
-
   color: var(--color-olive);
+
   text-decoration: none;
 
+  font-family: var(--font-serif);
   font-size: 14px;
+
   letter-spacing: 0.08em;
 
   transition:
@@ -1026,12 +1017,24 @@ code {
 
 .wedding-nav__heart {
   color: var(--color-gold);
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1;
-  margin-right: 0.15rem;
 }
 
-/* Sayfa bölümlerine giderken başlık menünün altında kalmasın */
+@keyframes weddingNavIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menüye tıklayınca başlık menünün altında kalmasın */
+
 #davet,
 #tarih,
 #mekan,
@@ -1039,14 +1042,20 @@ code {
   scroll-margin-top: 70px;
 }
 
+/* Telefon */
+
 @media (max-width: 600px) {
   .wedding-nav {
     justify-content: flex-start;
-    gap: 1.15rem;
 
-    padding: 11px 16px;
+    gap: 1.2rem;
+
+    height: 48px;
+
+    padding: 0 16px;
 
     overflow-x: auto;
+
     scrollbar-width: none;
   }
 
@@ -1061,13 +1070,13 @@ code {
 
   .wedding-nav__heart {
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   #davet,
   #tarih,
   #mekan,
   #aileler {
-    scroll-margin-top: 55px;
+    scroll-margin-top: 60px;
   }
 }
