@@ -6,7 +6,7 @@ export default function InvitationText() {
   const paragraphs = INVITATION_TEXT.split('\n\n')
 
   return (
-    <section className="invitation">
+    <section id="davet" className="invitation">
       <ScrollReveal>
         <LeafDivider />
         <div className="invitation__text">

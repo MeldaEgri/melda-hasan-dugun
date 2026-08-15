@@ -966,4 +966,108 @@ code {
     height: 230px;
   }
 }
+/* ─── Wedding Navigation ─── */
 
+.wedding-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7rem;
+
+  padding: 13px 20px;
+
+  background: rgba(250, 248, 244, 0.88);
+  border-bottom: 1px solid rgba(122, 143, 110, 0.12);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  font-family: var(--font-serif);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+.site--visible ~ .wedding-nav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wedding-nav a {
+  position: relative;
+
+  color: var(--color-olive);
+  text-decoration: none;
+
+  font-size: 14px;
+  letter-spacing: 0.08em;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.wedding-nav a:hover {
+  color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.wedding-nav__heart {
+  color: var(--color-gold);
+  font-size: 18px;
+  line-height: 1;
+  margin-right: 0.15rem;
+}
+
+/* Sayfa bölümlerine giderken başlık menünün altında kalmasın */
+#davet,
+#tarih,
+#mekan,
+#aileler {
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 600px) {
+  .wedding-nav {
+    justify-content: flex-start;
+    gap: 1.15rem;
+
+    padding: 11px 16px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .wedding-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wedding-nav a {
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+
+  .wedding-nav__heart {
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  #davet,
+  #tarih,
+  #mekan,
+  #aileler {
+    scroll-margin-top: 55px;
+  }
+}

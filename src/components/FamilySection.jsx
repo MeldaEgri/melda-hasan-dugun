@@ -4,8 +4,7 @@ import { LeafDivider } from './BotanicalDecor'
 
 export default function FamilySection() {
   return (
-    <section className="families">
-      <ScrollReveal>
+<section id="aileler" className="families">      <ScrollReveal>
         <h2 className="families__title">Ailelerimiz</h2>
         <LeafDivider />
 

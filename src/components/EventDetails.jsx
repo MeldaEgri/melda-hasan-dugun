@@ -17,8 +17,7 @@ export default function EventDetails() {
   }
 
   return (
-    <section className="event-details">
-      <ScrollReveal>
+<section id="mekan" className="event-details">      <ScrollReveal>
         <div className="event-card">
           <p className="event-card__label">Düğün Mekânı</p>
 

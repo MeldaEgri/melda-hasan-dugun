@@ -22,7 +22,13 @@ export default function App() {
     <>
       <IntroVideoModal isOpen={introOpen} onClose={handleIntroClose} />
       <MusicControl introOpen={introOpen} introClosed={introClosed} />
-
+      <nav className="wedding-nav">
+  <span className="wedding-nav__heart">♡</span>
+  <a href="#davet">Davet</a>
+  <a href="#tarih">Tarih</a>
+  <a href="#mekan">Mekân</a>
+  <a href="#aileler">Aileler</a>
+</nav>
       <main className={`site ${introOpen ? 'site--hidden' : 'site--visible'}`}>
         <Hero />
         <InvitationText />

@@ -53,7 +53,7 @@ export default function MusicControl({ introOpen, introClosed }) {
       setIsPlaying(false)
       setUserPaused(true)
     } else {
-      audio.volume = 0.4
+      audio.volume = 0.9
       try {
         await audio.play()
         setIsPlaying(true)
