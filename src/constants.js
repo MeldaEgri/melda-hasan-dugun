@@ -16,11 +16,11 @@ export const VENUE = {
 export const FAMILIES = {
   bride: {
     title: 'Melda Eğri Ailesi',
-    parents: 'Uğur & Müslime',
+    parents: 'Müslime & Uğur',
   },
   groom: {
     title: 'Hasan Hüseyin Karacığay Ailesi',
-    parents: 'Mehmet & Havva Hanım',
+    parents: 'Havva Hanım & Mehmet',
   },
 }
 
