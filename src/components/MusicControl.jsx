@@ -12,8 +12,15 @@ export default function MusicControl({ introOpen, introClosed }) {
     if (!audio) return
 
     const handleError = () => setAudioAvailable(false)
+    const handleCanPlay = () => setAudioAvailable(true)
+    
     audio.addEventListener('error', handleError)
-    return () => audio.removeEventListener('error', handleError)
+    audio.addEventListener('canplay', handleCanPlay)
+    
+    return () => {
+      audio.removeEventListener('error', handleError)
+      audio.removeEventListener('canplay', handleCanPlay)
+    }
   }, [])
 
   useEffect(() => {
@@ -59,8 +66,14 @@ export default function MusicControl({ introOpen, introClosed }) {
 
   return (
     <>
-      <audio ref={audioRef} src={ASSETS.music} loop preload="auto" />
-      <button
+<audio
+  ref={audioRef}
+  src={ASSETS.music}
+  loop
+  preload="auto"
+  onCanPlay={() => setAudioAvailable(true)}
+  onError={() => setAudioAvailable(false)}
+/>      <button
         type="button"
         className={`music-control ${!audioAvailable ? 'music-control--unavailable' : ''}`}
         onClick={toggleMusic}
