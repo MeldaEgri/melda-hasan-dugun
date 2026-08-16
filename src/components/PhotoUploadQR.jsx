@@ -38,10 +38,19 @@ export default function PhotoUploadQR() {
             </div>
 
             <p className="photo-upload__instruction">
-              Fotoğrafları yüklemek için
-              <br />
-              kameranızla okutun
-            </p>
+  Fotoğrafları yüklemek için
+  <br />
+  kameranızla okutun
+</p>
+
+<a
+  href={PHOTO_UPLOAD_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="photo-upload__link"
+>
+  veya buraya tıklayarak fotoğraflarınızı yükleyin
+</a>
 
             <div className="photo-upload__camera">
               ♧
