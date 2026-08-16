@@ -28,7 +28,7 @@ export const ASSETS = {
   introVideo: `${import.meta.env.BASE_URL}assets/wedding-intro.mp4`,
   music: `${import.meta.env.BASE_URL}assets/ille-de-ask.mp3`,
 }
-
+export const PHOTO_UPLOAD_URL = 'https://drive.google.com/drive/folders/107Lub_KbfQ4U32ZgK0i8HCn8tgWKsU3b?usp=sharing'
 export const INVITATION_TEXT = `Hayatımızın en güzel yolculuğuna birlikte çıkarken, mutluluğumuzu bizim için değerli olan sevdiklerimizle paylaşmak istiyoruz.
 
 Bu özel günümüzde sizleri de aramızda görmekten büyük mutluluk duyacağız.`

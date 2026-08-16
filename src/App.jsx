@@ -8,7 +8,7 @@ import Countdown from './components/Countdown'
 import EventDetails from './components/EventDetails'
 import FamilySection from './components/FamilySection'
 import Footer from './components/Footer'
-
+import PhotoUploadQR from './components/PhotoUploadQR'
 export default function App() {
   const [introOpen, setIntroOpen] = useState(true)
   const [introClosed, setIntroClosed] = useState(false)
@@ -36,9 +36,9 @@ export default function App() {
           <span className="wedding-nav__heart">♡</span>
 
           <a href="#davet">Davet</a>
+          <a href="#aileler">Aileler</a>
           <a href="#tarih">Tarih</a>
           <a href="#mekan">Mekân</a>
-          <a href="#aileler">Aileler</a>
         </nav>
       )}
 
@@ -48,24 +48,26 @@ export default function App() {
         }`}
       >
         <Hero />
-
+      
         <div id="davet">
           <InvitationText />
         </div>
-
+        <div id="aileler">
+          <FamilySection />
+        </div>
         <div id="tarih">
           <DateTimeSection />
         </div>
-
+        
         <Countdown />
 
         <div id="mekan">
           <EventDetails />
         </div>
-
-        <div id="aileler">
-          <FamilySection />
+        <div id="photo-upload">
+          <PhotoUploadQR />
         </div>
+        
 
         <Footer />
       </main>
