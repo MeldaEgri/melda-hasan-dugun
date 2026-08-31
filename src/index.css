@@ -298,11 +298,18 @@ code {
 }
 .music-control__text {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
   right: 0;
+  left: auto;
+
+  z-index: 2;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
 
   width: max-content;
-  max-width: 190px;
+  max-width: min(190px, calc(100vw - 2rem));
 
   padding: 8px 13px;
 
@@ -351,7 +358,7 @@ code {
   width: 2.75rem;
   height: 2.75rem;
   display: flex;
-  position: fixed;
+  overflow: visible;
 
   align-items: center;
   justify-content: center;

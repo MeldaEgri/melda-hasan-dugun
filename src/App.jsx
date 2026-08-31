@@ -10,8 +10,8 @@ import FamilySection from './components/FamilySection'
 import Footer from './components/Footer'
 import PhotoUploadQR from './components/PhotoUploadQR'
 export default function App() {
-  const [introOpen, setIntroOpen] = useState(true)
-  const [introClosed, setIntroClosed] = useState(false)
+  const [introOpen, setIntroOpen] = useState(false)
+  const [introClosed, setIntroClosed] = useState(true)
 
   const handleIntroClose = () => {
     setIntroOpen(false)
