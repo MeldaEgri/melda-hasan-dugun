@@ -1,112 +1,74 @@
-import { useEffect, useRef, useState } from 'react'
-import { ASSETS } from '../constants'
+import { useEffect, useState } from 'react'
 
 export default function IntroVideoModal({ isOpen, onClose }) {
-  const videoRef = useRef(null)
-  const [videoAvailable, setVideoAvailable] = useState(true)
-  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [opening, setOpening] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      setOpening(false)
     } else {
       document.body.style.overflow = ''
     }
+
     return () => {
       document.body.style.overflow = ''
     }
   }, [isOpen])
 
-  useEffect(() => {
-    if (!isOpen || !videoRef.current || !videoAvailable) return
+  const handleOpen = () => {
+    // Önce kapakları aç
+    setOpening(true)
 
-    const video = videoRef.current
-    video.muted = true
-    video.currentTime = 0
-
-    const playPromise = video.play()
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        /* autoplay blocked — user can tap to play */
-      })
-    }
-  }, [isOpen, videoAvailable])
-
-  const handleVideoError = () => {
-    setVideoAvailable(false)
-  }
-
-  const handleVideoEnded = () => {
-    onClose()
-  }
-
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
+    // Animasyon bitince davetiyeye geç
+    setTimeout(() => {
       onClose()
-    }
+    }, 1600)
   }
 
   if (!isOpen) return null
 
   return (
-    <div className="intro-overlay" onClick={handleBackdropClick} role="dialog" aria-modal="true" aria-label="Düğün filmi">
-      <div className="intro-modal">
+    <div className={`intro-overlay ${opening ? 'intro-overlay--opening' : ''}`}>
+
+      {/* SOL KAPAK */}
+      <div className="intro-door intro-door--left">
+        <div className="intro-door__line intro-door__line--top" />
+        <div className="intro-door__line intro-door__line--bottom" />
+      </div>
+
+      {/* SAĞ KAPAK */}
+      <div className="intro-door intro-door--right">
+        <div className="intro-door__line intro-door__line--top" />
+        <div className="intro-door__line intro-door__line--bottom" />
+      </div>
+
+      {/* ORTADAKİ YAZI */}
+      <div className="intro-welcome">
+
+        <div className="intro-welcome__heart">♡</div>
+
+        <h1>Melda & Hasan</h1>
+
+        <p>
+          Sevgiyle hazırladığımız<br />
+          bu özel günümüze hoş geldiniz
+        </p>
+
         <button
           type="button"
-          className="intro-modal__close"
-          onClick={onClose}
-          aria-label="Videoyu kapat"
+          className="intro-welcome__button"
+          onClick={handleOpen}
         >
-          ×
+          Daveti Aç ✦
         </button>
 
-        <div className="intro-modal__video-wrap">
-          {videoAvailable ? (
-            <>
-              <video
-                ref={videoRef}
-                className="intro-modal__video"
-                src={ASSETS.introVideo}
-                playsInline
-                muted
-                onLoadedData={() => setVideoLoaded(true)}
-                onError={handleVideoError}
-                onEnded={handleVideoEnded}
-              />
-              {!videoLoaded && (
-                <div className="intro-modal__placeholder">
-                  <div className="intro-modal__placeholder-inner">
-                    <span className="intro-modal__rec">REC ●</span>
-                    <p>Film yükleniyor…</p>
-                  </div>
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="intro-modal__placeholder intro-modal__placeholder--fallback">
-              <div className="intro-modal__placeholder-inner">
-                <span className="intro-modal__rec">REC ●</span>
-                <p className="intro-modal__placeholder-title">Düğün Filmi</p>
-                <p className="intro-modal__placeholder-hint">
-                  Video dosyası henüz eklenmedi.
-                  <br />
-                  <code>public/assets/wedding-intro.mp4</code>
-                </p>
-                <button type="button" className="btn btn--ghost" onClick={onClose}>
-                  Davetiyeye Geç
-                </button>
-              </div>
-            </div>
-          )}
+        <span className="intro-welcome__music">
+          ♫ Daveti açmak için dokunun ♫
+        </span>
 
-          <div className="camera-frame" aria-hidden="true">
-            <span className="camera-frame__corner camera-frame__corner--tl" />
-            <span className="camera-frame__corner camera-frame__corner--tr" />
-            <span className="camera-frame__corner camera-frame__corner--bl" />
-            <span className="camera-frame__corner camera-frame__corner--br" />
-          </div>
-        </div>
       </div>
+
     </div>
   )
 }

@@ -1319,4 +1319,276 @@ code {
     color: var(--color-burgundy);
     text-decoration-color: var(--color-burgundy);
   }
+  .welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 20px;
+  
+    background:
+      radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 45%),
+      rgba(32, 27, 22, 0.72);
+  
+    backdrop-filter: blur(7px);
+  }
+  
+  .welcome-card {
+    width: min(430px, 100%);
+    padding: 60px 40px 45px;
+  
+    text-align: center;
+  
+    background: #f7f1e8;
+  
+    border: 1px solid rgba(150, 110, 75, 0.3);
+  
+    box-shadow:
+      0 20px 70px rgba(0, 0, 0, 0.3);
+  
+    position: relative;
+  }
+  
+  .welcome-card::before,
+  .welcome-card::after {
+    content: "✦";
+    position: absolute;
+    color: #9b6249;
+    font-size: 18px;
+  }
+  
+  .welcome-card::before {
+    top: 18px;
+    left: 20px;
+  }
+  
+  .welcome-card::after {
+    bottom: 18px;
+    right: 20px;
+  }
+  
+  .welcome-heart {
+    color: #8f5544;
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+  
+  .welcome-small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9a7867;
+    margin-bottom: 18px;
+  }
+  
+  .welcome-card h1 {
+    margin: 0;
+  
+    font-size: clamp(38px, 8vw, 58px);
+    font-weight: 400;
+  
+    color: #493c32;
+  }
+  
+  .welcome-card h1 span {
+    color: #9b6249;
+    font-style: italic;
+    padding: 0 5px;
+  }
+  
+  .welcome-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  
+    margin: 25px 0;
+  
+    color: #a57963;
+  }
+  
+  .welcome-divider::before,
+  .welcome-divider::after {
+    content: "";
+    width: 55px;
+    height: 1px;
+    background: #cbb29f;
+  }
+  
+  .welcome-text {
+    color: #706056;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  
+  .welcome-button {
+    border: none;
+    padding: 15px 28px;
+  
+    background: #8d5847;
+    color: white;
+  
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 1px;
+  
+    cursor: pointer;
+  
+    transition: 0.25s ease;
+  }
+  
+  .welcome-button:hover {
+    transform: translateY(-2px);
+    background: #754635;
+  }
+  
+  .welcome-button span {
+    margin: 0 8px;
+  }
+  
+  .welcome-hint {
+    margin: 16px 0 0;
+    font-size: 11px;
+    color: #a18c7e;
+  }
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
+  }
+  
+  
+  /* KAPAKLAR */
+  
+  .intro-door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0,0,0,0.12),
+        transparent 20%,
+        transparent 80%,
+        rgba(0,0,0,0.12)
+      ),
+      #526353;
+  
+    transition:
+      transform 1.6s cubic-bezier(.77, 0, .18, 1);
+  }
+  
+  
+  /* SOL KAPAK */
+  
+  .intro-door--left {
+    left: 0;
+    border-right: 1px solid rgba(255,255,255,0.18);
+  }
+  
+  
+  /* SAĞ KAPAK */
+  
+  .intro-door--right {
+    right: 0;
+    border-left: 1px solid rgba(255,255,255,0.18);
+  }
+  
+  
+  /* BUTONA BASINCA AÇILMA */
+  
+  .intro-overlay--opening .intro-door--left {
+    transform: translateX(-100%);
+  }
+  
+  .intro-overlay--opening .intro-door--right {
+    transform: translateX(100%);
+  }
+  
+  
+  /* ORTADAKİ YAZI */
+  
+  .intro-welcome {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    color: #f7f2e8;
+    padding: 40px;
+  
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+  
+  
+  /* KAPAKLAR AÇILIRKEN YAZI KAYBOLSUN */
+  
+  .intro-overlay--opening .intro-welcome {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  
+  
+  .intro-welcome__heart {
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .intro-welcome h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 400;
+    margin: 0 0 25px;
+    letter-spacing: 2px;
+  }
+  
+  
+  .intro-welcome p {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+  }
+  
+  
+  .intro-welcome__button {
+    padding: 14px 35px;
+  
+    border: 1px solid rgba(255,255,255,0.65);
+    background: transparent;
+  
+    color: white;
+  
+    font-family: Georgia, serif;
+    font-size: 16px;
+  
+    cursor: pointer;
+  
+    transition: 0.3s;
+  }
+  
+  
+  .intro-welcome__button:hover {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.04);
+  }
+  
+  
+  .intro-welcome__music {
+    display: block;
+    margin-top: 20px;
+  
+    font-size: 13px;
+    opacity: 0.75;
+  }
