@@ -25,6 +25,10 @@ export default function Hero() {
           <span className="camera-frame__corner camera-frame__corner--tr" />
           <span className="camera-frame__corner camera-frame__corner--bl" />
           <span className="camera-frame__corner camera-frame__corner--br" />
+          <div className="scroll-indicator">
+            <span>Aşağı kaydır</span>
+            <div className="scroll-indicator__arrow">⌄</div>
+          </div>
         </div>
       </div>
     </section>
