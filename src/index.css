@@ -335,7 +335,8 @@ code {
 
   animation: musicTextIn 0.35s ease-out both;
 
-  pointer-events: none;
+  pointer-events: auto;
+cursor: pointer;
 }
 
 @keyframes musicTextIn {
