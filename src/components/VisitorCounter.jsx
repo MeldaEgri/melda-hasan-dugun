@@ -13,7 +13,7 @@ export default function VisitorCounter() {
         const data = await response.json()
 
         if (data.success) {
-          setVisitors(data.visitors)
+          setVisitors(data.visitors + 100)
         }
       } catch (error) {
         console.error('Ziyaretçi sayısı alınamadı:', error)
@@ -28,14 +28,14 @@ export default function VisitorCounter() {
       <span className="visitor-counter__heart">♡</span>
 
       <p className="visitor-counter__text">
-  {visitors !== null ? (
-    <>
-      Davetiyemiz <strong>{visitors}</strong> kez görüntülendi ♡
-    </>
-  ) : (
-    'Ziyaretçi sayısı yükleniyor...'
-  )}
-</p>
+        {visitors !== null ? (
+          <>
+            Davetiyemiz <strong>{visitors}</strong> kez görüntülendi ♡
+          </>
+        ) : (
+          'Ziyaretçi sayısı yükleniyor...'
+        )}
+      </p>
     </section>
   )
 }
