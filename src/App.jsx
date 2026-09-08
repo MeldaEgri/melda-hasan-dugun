@@ -9,6 +9,7 @@ import EventDetails from './components/EventDetails'
 import FamilySection from './components/FamilySection'
 import Footer from './components/Footer'
 import PhotoUploadQR from './components/PhotoUploadQR'
+import VisitorCounter from './components/VisitorCounter'
 export default function App() {
   const [introOpen, setIntroOpen] = useState(true)
   const [introClosed, setIntroClosed] = useState(false)
@@ -68,7 +69,7 @@ export default function App() {
           <PhotoUploadQR />
         </div>
         
-
+        <VisitorCounter/>
         <Footer />
       </main>
     </>

@@ -1813,4 +1813,53 @@ cursor: pointer;
     white-space: normal;
   }
 
+}/* ─── Visitor Counter ─── */
+
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 22px 20px;
+
+  color: var(--color-olive);
+
+  text-align: center;
+
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.visitor-counter__heart {
+  font-size: 25px;
+  color: var(--color-olive);
+  opacity: 0.8;
+}
+
+.visitor-counter__text {
+  margin: 0;
+
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.visitor-counter__text strong {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Mobil */
+
+@media (max-width: 768px) {
+  .visitor-counter {
+    padding: 18px 16px;
+  }
+
+  .visitor-counter__text {
+    font-size: 16px;
+  }
+
+  .visitor-counter__text strong {
+    font-size: 20px;
+  }
 }
