@@ -1,11 +1,16 @@
 import { COUPLE } from '../constants'
+
 import { LeafCorner } from './BotanicalDecor'
 
 export default function Hero() {
   return (
     <section className="hero">
       <LeafCorner className="hero__leaf hero__leaf--tl" />
-      <LeafCorner className="hero__leaf hero__leaf--br" flip />
+
+      <LeafCorner
+        className="hero__leaf hero__leaf--br"
+        flip
+      />
 
       <div className="hero__film-detail" aria-hidden="true">
         <span className="hero__rec">REC ●</span>
@@ -13,23 +18,38 @@ export default function Hero() {
 
       <div className="hero__content">
         <div className="hero__names">
-          <span className="hero__name hero__name--script">{COUPLE.bride}</span>
-          <span className="hero__heart" aria-hidden="true">♡</span>
-          <span className="hero__name hero__name--script">{COUPLE.groom}</span>
+          <span className="hero__name hero__name--script">
+            {COUPLE.bride}
+          </span>
+
+          <span className="hero__heart" aria-hidden="true">
+            ♡
+          </span>
+
+          <span className="hero__name hero__name--script">
+            {COUPLE.groom}
+          </span>
         </div>
 
-        <p className="hero__date">18 Eylül 2026</p>
+        <p className="hero__date">
+          18 Eylül 2026
+        </p>
 
-        <div className="camera-frame camera-frame--subtle" aria-hidden="true">
+        <div
+          className="camera-frame camera-frame--subtle"
+          aria-hidden="true"
+        >
           <span className="camera-frame__corner camera-frame__corner--tl" />
           <span className="camera-frame__corner camera-frame__corner--tr" />
           <span className="camera-frame__corner camera-frame__corner--bl" />
           <span className="camera-frame__corner camera-frame__corner--br" />
-          <div className="scroll-indicator">
-            <span>Aşağı kaydır</span>
-            <div className="scroll-indicator__arrow">⌄</div>
-          </div>
         </div>
+      </div>
+
+      {/* SAYFANIN DEVAM ETTİĞİNİ GÖSTEREN YAZI */}
+      <div className="hero-scroll">
+        <span>Devam etmek için kaydırın</span>
+        <span className="hero-scroll__arrow">↓</span>
       </div>
     </section>
   )

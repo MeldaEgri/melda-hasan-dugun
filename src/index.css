@@ -443,8 +443,9 @@ cursor: pointer;
 
 /* ─── Hero ─── */
 .hero {
+  
   position: relative;
-  min-height: 92vh;  display: flex;
+  min-height: 88vh;  display: flex;
   align-items: center;
   justify-content: center;
   padding:
@@ -1528,18 +1529,18 @@ cursor: pointer;
     top: 0;
     bottom: 0;
     width: 50%;
+  
     background:
       linear-gradient(
         90deg,
-        rgba(0,0,0,0.12),
+        rgba(0, 0, 0, 0.12),
         transparent 20%,
         transparent 80%,
-        rgba(0,0,0,0.12)
+        rgba(0, 0, 0, 0.12)
       ),
-      linear-gradient(180deg, #6d8a58 0%, #526353 55%, #8a5a46 100%);
+      #526353;
   
-    transition:
-      transform 1.6s cubic-bezier(.77, 0, .18, 1);
+    transition: transform 1.6s cubic-bezier(.77, 0, .18, 1);
   }
   
   
@@ -1646,3 +1647,84 @@ cursor: pointer;
     font-size: 13px;
     opacity: 0.75;
   }
+  /* ================================
+   HERO - SAYFANIN DEVAMINI GÖSTER
+================================ */
+
+/* İlk açılan bölüm */
+
+
+/* Aşağı kaydırma yazısı */
+.hero-scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  width: max-content;
+
+  color: var(--color-olive);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  text-align: center;
+
+  z-index: 10;
+
+  animation: heroScrollFade 2s ease-in-out infinite;
+}
+
+.hero-scroll__arrow {
+  font-size: 26px;
+  line-height: 1;
+
+  animation: heroScrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes heroScrollFade {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes heroScrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+
+/* MOBİL */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 85vh;
+  }
+
+  .hero-scroll {
+    bottom: 15px;
+    font-size: 14px;
+  }
+
+}
